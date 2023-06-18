@@ -3,8 +3,8 @@ const routes = require('./routes');
 
 const init = async () => {
   const server = Hapi.server({
-    port: 9000,
-    host: 'localhost',
+    host: HOST,
+    port: PORT,
     routes: {
       cors: {
         origin: ['*'],
@@ -15,7 +15,7 @@ const init = async () => {
   server.route(routes);
 
   await server.start();
-  console.log(`Bookshelf server berjalan pada ${server.info.uri}`);
+  console.log(`Artikel server berjalan pada ${server.info.uri}`);
 };
 
 init();
