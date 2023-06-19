@@ -33,22 +33,22 @@ const getAllArtikelHandler = (request, h) => {
   return response;
 };
 
-const getBookByIdHandler = (request, h) => {
+const getArtikelByIdHandler = (request, h) => {
   const {id} = request.params;
-  const book = books.filter((b) => b.id === id)[0];
+  const artikel = artikel.filter((b) => b.id === id)[0];
 
-  if (book !== undefined) {
+  if (artikel !== undefined) {
     return {
       status: 'success',
       data: {
-        book,
+        artikel,
       },
     };
   }
 
   const response = h.response({
     status: 'fail',
-    message: 'Buku tidak ditemukan',
+    message: 'Artikel tidak ditemukan',
   });
   response.code(404);
   return response;
@@ -56,5 +56,5 @@ const getBookByIdHandler = (request, h) => {
 
 module.exports = {
   getAllArtikelHandler,
-  getBookByIdHandler,
+  getArtikelByIdHandler,
 };
